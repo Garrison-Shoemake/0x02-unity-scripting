@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -14,7 +15,17 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
+	
+	void Update()
+	{
+		if (health <= 0)
+		{
+			score = 0;
+			health = 5;
+			SceneManager.LoadScene("maze");
+		}
+	}
+
 	void FixedUpdate () 
 	{
 		
@@ -47,6 +58,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			health -= 1;
 			Debug.Log("Health: " + health);
+		}
+		if (other.tag == "Goal")
+		{
+			Debug.Log("You win!");
 		}
 	}
 }
