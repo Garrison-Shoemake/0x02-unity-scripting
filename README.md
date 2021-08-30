@@ -1,1 +1,1 @@
-# 0x02. Unity - Scripting
+This is the readme for the 0x03-unity-ui project! We're making a UI
